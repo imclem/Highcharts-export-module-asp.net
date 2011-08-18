@@ -6,8 +6,8 @@
 <head runat="server">
     <title>Highchart js export module sample</title>
     <script src="Javascript/jquery-1.5.1.js" type="text/javascript"></script>
-    <script src="Javascript/highcharts/highcharts.js" type="text/javascript"></script>   
-    <script src="Javascript/highcharts/modules/exporting.js" type="text/javascript"></script> 
+    <script src="http://highcharts.com/js/highcharts.js" type="text/javascript"></script>   
+    <script src="http://highcharts.com/js/modules/exporting.js" type="text/javascript"></script> 
 </head>
 
 <script language="javascript" type="text/javascript">
@@ -16,7 +16,7 @@ $(document).ready(function() {
    chart = new Highcharts.Chart({
       chart: {
          renderTo: 'container',
-         defaultSeriesType: 'line',
+         defaultSeriesType: 'bar',
          marginRight: 130,
          marginBottom: 25
       },

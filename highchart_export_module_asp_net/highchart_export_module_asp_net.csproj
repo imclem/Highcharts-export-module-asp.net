@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp, Version=5.1.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL" />
-    <Reference Include="Svg, Version=0.5.2.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Svg, Version=0.5.2.17984, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -57,19 +57,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="highcharts_export.aspx" />
-    <Content Include="Javascript\highcharts\adapters\mootools-adapter.js" />
-    <Content Include="Javascript\highcharts\adapters\mootools-adapter.src.js" />
-    <Content Include="Javascript\highcharts\adapters\prototype-adapter.js" />
-    <Content Include="Javascript\highcharts\adapters\prototype-adapter.src.js" />
-    <Content Include="Javascript\highcharts\highcharts.js" />
-    <Content Include="Javascript\highcharts\highcharts.src.js" />
     <Content Include="Javascript\jquery-1.5.1.js" />
-    <Content Include="Javascript\highcharts\modules\exporting.js" />
-    <Content Include="Javascript\highcharts\modules\exporting.src.js" />
-    <Content Include="Javascript\highcharts\themes\dark-blue.js" />
-    <Content Include="Javascript\highcharts\themes\dark-green.js" />
-    <Content Include="Javascript\highcharts\themes\gray.js" />
-    <Content Include="Javascript\highcharts\themes\grid.js" />
     <Content Include="libDll\itextsharp.dll" />
     <Content Include="libDll\Svg.dll" />
     <Content Include="Web.config" />

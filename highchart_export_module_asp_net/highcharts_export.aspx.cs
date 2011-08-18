@@ -73,7 +73,7 @@ namespace highchart_export_module_asp_net
                         tSw.Dispose();
 
                         Svg.SvgDocument tSvgObj = SvgDocument.Open(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile);
-
+                
                         switch (tExt)
                         {
                             case "jpg":
