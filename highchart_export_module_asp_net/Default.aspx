@@ -57,7 +57,7 @@ $(document).ready(function() {
          borderWidth: 0
       },
       exporting: {
-      url: "http://localhost:2001/highcharts_export.aspx"
+      url: "http://localhost:49394/highcharts_export.aspx"
       }
       ,
       series: [{

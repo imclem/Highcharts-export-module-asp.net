@@ -15,6 +15,7 @@ using Svg;
 using System.Drawing.Imaging;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Text;
 
 namespace highchart_export_module_asp_net
 {
@@ -29,11 +30,13 @@ namespace highchart_export_module_asp_net
                     string tType = Request.Form["type"].ToString();
                     string tSvg = Request.Form["svg"].ToString();
                     string tFileName = Request.Form["filename"].ToString();
-
                     if (tFileName == "")
                     {
                         tFileName = "chart";
                     }
+
+                    MemoryStream tData = new MemoryStream(Encoding.ASCII.GetBytes(tSvg));
+                    MemoryStream tStream = new MemoryStream();
 
                     string tTmp = new Random().Next().ToString();
 
@@ -60,37 +63,28 @@ namespace highchart_export_module_asp_net
                             break;
                     }
 
-                    string tSvgOuputFile = tTmp + "." + "svg";
-                    string tOutputFile = tTmp + "." + tExt;
-
                     if (tTypeString != "")
                     {
                         string tWidth = Request.Form["width"].ToString();
-                        //WRITING SVG TO DISK
-                        StreamWriter tSw = new StreamWriter(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile);
-                        tSw.Write(tSvg);
-                        tSw.Close();
-                        tSw.Dispose();
-
-                        Svg.SvgDocument tSvgObj = SvgDocument.Open(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile);
+                        Svg.SvgDocument tSvgObj = SvgDocument.Open(tData);
                 
                         switch (tExt)
                         {
                             case "jpg":
-                                tSvgObj.Draw().Save(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile, ImageFormat.Jpeg);
+                                tSvgObj.Draw().Save(tStream, ImageFormat.Jpeg);
                                 //DELETING SVG FILE 
-                                if (File.Exists(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile))
-                                {
-                                    File.Delete(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile);
-                                }
+                                //if (File.Exists(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile))
+                                //{
+                                //    File.Delete(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile);
+                                //}
                                 break;
                             case "png":
-                                tSvgObj.Draw().Save(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile, ImageFormat.Png);
-                                //DELETING SVG FILE
-                                if (File.Exists(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile))
-                                {
-                                    File.Delete(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile);
-                                }
+                                tSvgObj.Draw().Save(tStream, ImageFormat.Png);
+                                ////DELETING SVG FILE
+                                //if (File.Exists(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile))
+                                //{
+                                //    File.Delete(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile);
+                                //}
                                 break;
                             case "pdf":
 
@@ -99,34 +93,36 @@ namespace highchart_export_module_asp_net
                                 try
                                 {
                                     // First step saving png that would be used in pdf
-                                    tSvgObj.Draw().Save(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile.Substring(0, tOutputFile.LastIndexOf(".")) + ".png", ImageFormat.Png);
+                                    tSvgObj.Draw().Save(tStream, ImageFormat.Png);
 
                                     // Creating pdf document
                                     tDocumentPdf = new Document(new iTextSharp.text.Rectangle((float)tSvgObj.Width, (float)tSvgObj.Height));
                                     // setting up margin to full screen image
                                     tDocumentPdf.SetMargins(0.0f, 0.0f, 0.0f, 0.0f);
                                     // creating image
-                                    iTextSharp.text.Image tGraph = iTextSharp.text.Image.GetInstance(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile.Substring(0, tOutputFile.LastIndexOf(".")) + ".png");
+                                    iTextSharp.text.Image tGraph = iTextSharp.text.Image.GetInstance(tStream.ToArray());
                                     tGraph.ScaleToFit((float)tSvgObj.Width, (float)tSvgObj.Height);
 
+                                    tStream = new MemoryStream();
+
                                     // Insert content
-                                    tWriter = PdfWriter.GetInstance(tDocumentPdf, new FileStream(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile, FileMode.Create));
+                                    tWriter = PdfWriter.GetInstance(tDocumentPdf,tStream);
                                     tDocumentPdf.Open();
                                     tDocumentPdf.NewPage();
                                     tDocumentPdf.Add(tGraph);
                                     tDocumentPdf.CloseDocument();
 
-                                    // deleting png
-                                    if (File.Exists(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile.Substring(0, tOutputFile.LastIndexOf(".")) + ".png"))
-                                    {
-                                        File.Delete(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile.Substring(0, tOutputFile.LastIndexOf(".")) + ".png");
-                                    }
+                                    //// deleting png
+                                    //if (File.Exists(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile.Substring(0, tOutputFile.LastIndexOf(".")) + ".png"))
+                                    //{
+                                    //    File.Delete(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile.Substring(0, tOutputFile.LastIndexOf(".")) + ".png");
+                                    //}
 
-                                    // deleting svg
-                                    if (File.Exists(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile))
-                                    {
-                                        File.Delete(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile);
-                                    }
+                                    //// deleting svg
+                                    //if (File.Exists(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile))
+                                    //{
+                                    //    File.Delete(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tSvgOuputFile);
+                                    //}
 
                                 }
                                 catch (Exception ex)
@@ -140,6 +136,8 @@ namespace highchart_export_module_asp_net
                                     tDocumentPdf.Dispose();
                                     tWriter.Close();
                                     tWriter.Dispose();
+                                    tData.Dispose();
+                                    tData.Close();
 
                                 }
 
@@ -147,7 +145,7 @@ namespace highchart_export_module_asp_net
                                 break;
 
                             case "svg":
-                                tOutputFile = tSvgOuputFile;
+                                tStream = tData;
                                 break;
                         }
 
@@ -155,21 +153,21 @@ namespace highchart_export_module_asp_net
 
 
 
-                        if (File.Exists(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile))
-                        {
+                        //if (File.Exists(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile))
+                        //{
 
                             //Putting session to be able to delete file in temp directory
-                            Session["sFileToTransmit_highcharts_export"] = File.ReadAllBytes(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile);
+                            //Session["sFileToTransmit_highcharts_export"] = File.ReadAllBytes(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile);
                             //First step deleting disk file;
-                            File.Delete(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile);
+                            //File.Delete(Server.MapPath(null) + ConfigurationManager.AppSettings["EXPORT_TEMP_FOLDER"].ToString() + tOutputFile);
                             
                             Response.ClearContent();
                             Response.ClearHeaders();
                             Response.ContentType = tType;
                             Response.AppendHeader("Content-Disposition", "attachment; filename=" + tFileName + "." + tExt + "");
-                            Response.BinaryWrite((byte[])Session["sFileToTransmit_highcharts_export"]);
+                            Response.BinaryWrite(tStream.ToArray());
                             Response.End();
-                        }
+                        //}
 
                     }
                 }
