@@ -1,8 +1,8 @@
-# [Tek4.Highcharts.Exporting assembly]
+﻿# Tek4.Highcharts.Exporting assembly
 
 Tek4 ASP.NET Exporting Module for Highcharts JS (http://highcharts.com/).
 
-* Based upon ASP.NET Highcharts export module by Cl�ment Agarini (June 15, 2011).
+* Based upon ASP.NET Highcharts export module by Clément Agarini (June 15, 2011).
 * Re-written by Kevin P. Rice (http://tek4.com/).
 * Utilizes customized Svg.dll provided by OlgaD (https://github.com/imclem/Highcharts-export-module-asp.net/issues/1).
 
