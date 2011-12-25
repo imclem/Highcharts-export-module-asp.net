@@ -1,0 +1,1 @@
+﻿<%@ Page Inherits="Tek4.Highcharts.Exporting.Page" ValidateRequest="false"%>

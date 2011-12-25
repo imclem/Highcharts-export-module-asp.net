@@ -1,0 +1,39 @@
+﻿License for Tek4.Highcharts.Exporting.dll
+
+Re-distributed works listed below are not subject to this license. These
+works are separately licensed according to their terms.
+
+Copyright (C) 2011 by Tek4(TM) - Kevin P. Rice
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+=====================================================================
+License for SVG Rendering Engine (Svg.dll v0.5.2.17984):
+
+Microsoft Public License (Ms-PL)
+http://svg.codeplex.com/license
+
+Project Home: http://svg.codeplex.com/
+=====================================================================
+License for iTextSharp (itextsharp.dll v.5.1.3.0):
+
+Affero GNU Public License
+http://www.gnu.org/licenses/agpl.html
+
+Project Home: http://sourceforge.net/projects/itextsharp/

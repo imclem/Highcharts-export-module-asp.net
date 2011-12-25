@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tek4.Highcharts.Exporting", "Tek4.Highcharts.Exporting\Tek4.Highcharts.Exporting.csproj", "{42BDE168-C741-4339-92B6-0656E798E989}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Exporting_Demo_website", "Exporting_Demo_website\", "{86EC93E8-8F9A-49D9-975E-6E39EDFD9960}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		ProjectReferences = "{42BDE168-C741-4339-92B6-0656E798E989}|Tek4.Highcharts.Exporting.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/Exporting_Demo_website"
+		Debug.AspNetCompiler.PhysicalPath = "Exporting_Demo_website\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Exporting_Demo_website\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Exporting_Demo_website"
+		Release.AspNetCompiler.PhysicalPath = "Exporting_Demo_website\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Exporting_Demo_website\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "8461"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42BDE168-C741-4339-92B6-0656E798E989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42BDE168-C741-4339-92B6-0656E798E989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42BDE168-C741-4339-92B6-0656E798E989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42BDE168-C741-4339-92B6-0656E798E989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86EC93E8-8F9A-49D9-975E-6E39EDFD9960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86EC93E8-8F9A-49D9-975E-6E39EDFD9960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86EC93E8-8F9A-49D9-975E-6E39EDFD9960}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{86EC93E8-8F9A-49D9-975E-6E39EDFD9960}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
