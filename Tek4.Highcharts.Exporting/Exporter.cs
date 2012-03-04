@@ -10,7 +10,7 @@
 //
 // Based upon ASP.NET Highcharts export module by Clément Agarini
 //
-// Copyright (C) 2011 by Tek4(TM) - Kevin P. Rice
+// Copyright (C) 2012 by Tek4(TM) - Kevin P. Rice
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -32,6 +32,7 @@
 // 
 // REVISION HISTORY:
 // 2011-07-16 KPR Created.
+// 2012-03-03 KPR Bug fix: WriteToStream() PNG requires seekable stream.
 
 namespace Tek4.Highcharts.Exporting
 {
@@ -211,9 +212,14 @@ namespace Tek4.Highcharts.Exporting
           break;
 
         case "image/png":
-          CreateSvgDocument().Draw().Save(
-            outputStream,
-            ImageFormat.Png);
+          // PNG output requires a seekable stream.
+          using (MemoryStream seekableStream = new MemoryStream())
+          {
+            CreateSvgDocument().Draw().Save(
+                seekableStream,
+                ImageFormat.Png);
+            seekableStream.WriteTo(outputStream);
+          } 
           break;
 
         case "application/pdf":

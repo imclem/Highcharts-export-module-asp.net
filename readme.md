@@ -1,6 +1,7 @@
-﻿# Tek4.Highcharts.Exporting assembly
+## Tek4.Highcharts.Exporting assembly
 
 Tek4 ASP.NET Exporting Module for Highcharts JS (http://highcharts.com/).
+Version 1.0.2.0 (March 3, 2012)
 
 * Based upon ASP.NET Highcharts export module by Clément Agarini (June 15, 2011).
 * Re-written by Kevin P. Rice (http://tek4.com/).
@@ -40,7 +41,7 @@ Tek4 ASP.NET Exporting Module for Highcharts JS (http://highcharts.com/).
 Re-distributed works listed below are not subject to this license. These
 works are separately licensed according to their terms.
 
-Copyright (C) 2011 by Tek4(TM) - Kevin P. Rice
+Copyright (C) 2012 by Tek4(TM) - Kevin P. Rice
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

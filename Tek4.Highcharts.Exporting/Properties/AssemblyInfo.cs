@@ -10,7 +10,7 @@
 //
 // Based upon ASP.NET Highcharts export module by Clément Agarini
 //
-// Copyright (C) 2011 by Tek4(TM) - Kevin P. Rice
+// Copyright (C) 2012 by Tek4(TM) - Kevin P. Rice
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -31,8 +31,9 @@
 // THE SOFTWARE.
 //
 // REVISION HISTORY:
-// 2011-12-24 KPR Latest Svg.dll requires .NET 3.5
 // 2011-07-16 KPR Created.
+// 2011-12-24 KPR v1.0.1 Latest Svg.dll requires .NET 3.5
+// 2012-03-03 KPR v1.0.2 Exporter.WriteToStream() PNG requires seekable stream.
 
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -42,12 +43,12 @@ using System.Runtime.InteropServices;
   "ASP.NET chart exporting for Highcharts JS JavaScript charts.")]
 [assembly: AssemblyCompany("Tek4(TM) (http://Tek4.com/)")]
 [assembly: AssemblyProduct("Tek4.Highcharts.Exporting")]
-[assembly: AssemblyCopyright("Copyright (C) 2011 Tek4(TM) - Kevin P. Rice.")]
+[assembly: AssemblyCopyright("Copyright (C) 2012 Tek4(TM) - Kevin P. Rice.")]
 [assembly: AssemblyTrademark("Tek4")]
 
-[assembly: AssemblyVersion("1.0.1.0")]
-[assembly: AssemblyFileVersion("2011.12.24.2252")]
-[assembly: AssemblyInformationalVersion("1.0.1.0")]
+[assembly: AssemblyVersion("1.0.2.0")]
+[assembly: AssemblyFileVersion("2012.3.4.0242")]
+[assembly: AssemblyInformationalVersion("1.0.2.0")]
 
 [assembly: AssemblyCulture("")]
 
