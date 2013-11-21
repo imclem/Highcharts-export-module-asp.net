@@ -40,10 +40,10 @@ rev. 2011-08-18 .NET 2.0
 
     <!-- 1. Include jQuery and Highcharts scripts. -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-    <script src="http://highcharts.com/js/highcharts.js" type="text/javascript"></script>   
+    <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>   
 
     <!-- 2. Include the Highcharts exporting module script. -->
-    <script src="http://highcharts.com/js/modules/exporting.js" type="text/javascript"></script> 
+    <script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script> 
     
     <!-- 3. DON'T FORGET to add the exporting url to your chart (along with
             any other desired exporting options):
