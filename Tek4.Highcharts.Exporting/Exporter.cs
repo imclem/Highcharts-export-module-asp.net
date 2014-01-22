@@ -46,6 +46,7 @@ namespace Tek4.Highcharts.Exporting
   using iTextSharp.text.pdf;
   using Svg;
   using Svg.Transforms;
+    using System.Xml;
 
   /// <summary>
   /// .NET chart exporting class for Highcharts JS JavaScript charts.
@@ -166,8 +167,7 @@ namespace Tek4.Highcharts.Exporting
       using (MemoryStream streamSvg = new MemoryStream(
         Encoding.UTF8.GetBytes(this.Svg)))
       {
-        // Create and return SvgDocument from stream.
-        svgDoc = SvgDocument.Open(streamSvg);
+       svgDoc = SvgDocument.Open<SvgDocument>(streamSvg);
       }
 
       // Scale SVG document to requested width.
