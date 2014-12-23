@@ -5,8 +5,7 @@ Version 1.0.2.0 (March 3, 2012)
 
 * Based upon ASP.NET Highcharts export module by Clément Agarini (June 15, 2011).
 * Re-written by Kevin P. Rice (http://tek4.com/).
-* Utilizes customized Svg.dll provided by OlgaD (https://github.com/imclem/Highcharts-export-module-asp.net/issues/1).
-
+* **Important Information** To all the people using a version prior to ac837d6931e4a51fe6e2afbd731480c6b628c6f5 you must either comply to AGPLv3 license induced by iTextSharp or upgrade to the newest version which removed link to iTextSharp
 
 ## Quick start
 
