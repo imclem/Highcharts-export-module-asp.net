@@ -14,7 +14,7 @@ Version 1.0.2.0 (March 3, 2012)
 * IIS: Create a web application and copy the files in the demo website directory (choosing correct web.config).
 
 ### Your web site ###
-* Copy the three .dll files from the demo website /bin directory to your website /bin directory (Tek4.Highcharts.Exporting.dll, itextsharp.dll, Svg.dll).
+* Copy the three .dll files from the demo website /bin directory to your website /bin directory (Tek4.Highcharts.Exporting.dll, sharpPDF.dll, Svg.dll).
 * Review the demo website 'Default.aspx' and 'web.config' files for configuration and usage details.
 * Configuration in 'web.config' is for .NET 3.5 and 'web-dotNET4.0.config' is for .NET 4.0 and later.
 
