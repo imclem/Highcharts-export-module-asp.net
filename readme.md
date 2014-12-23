@@ -64,5 +64,5 @@ THE SOFTWARE.
 
 ## Redistributed components (separately licensed):
 
-* SVG Rendering Engine (Svg.dll): http://svg.codeplex.com/
-* iTextSharp (itextsharp.dll): http://sourceforge.net/projects/itextsharp/
+* SVG Rendering Engine (Svg.dll):  https://github.com/vvvv/SVG
+* sharpPDF 1.3.1 (sharpPDF.dll): http://sharppdf.sourceforge.net/
