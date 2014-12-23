@@ -42,11 +42,11 @@ namespace Tek4.Highcharts.Exporting
   using System.IO;
   using System.Text;
   using System.Web;
-  using iTextSharp.text;
-  using iTextSharp.text.pdf;
   using Svg;
   using Svg.Transforms;
     using System.Xml;
+    using sharpPDF;
+    using System.Drawing;
 
   /// <summary>
   /// .NET chart exporting class for Highcharts JS JavaScript charts.
@@ -224,54 +224,12 @@ namespace Tek4.Highcharts.Exporting
 
         case "application/pdf":
           SvgDocument svgDoc = CreateSvgDocument();
+          Bitmap bmp = svgDoc.Draw();
 
-          // Create PDF document.
-          using (Document pdfDoc = new Document())
-          {
-            // Scalar to convert from 72 dpi to 150 dpi.
-            float dpiScalar = 150f / 72f;
-
-            // Set page size. Page dimensions are in 1/72nds of an inch.
-            // Page dimensions are scaled to boost dpi and keep page
-            // dimensions to a smaller size.
-            pdfDoc.SetPageSize(new Rectangle(
-              svgDoc.Width / dpiScalar, 
-              svgDoc.Height / dpiScalar));
-
-            // Set margin to none.
-            pdfDoc.SetMargins(0f, 0f, 0f, 0f);
-
-            // Create PDF writer to write to response stream.
-            using (PdfWriter pdfWriter = PdfWriter.GetInstance(
-              pdfDoc,
-              outputStream))
-            {
-              // Configure PdfWriter.
-              pdfWriter.SetPdfVersion(PdfWriter.PDF_VERSION_1_5);
-              pdfWriter.CompressionLevel = PdfStream.DEFAULT_COMPRESSION;
-
-              // Add meta data.
-              pdfDoc.AddCreator(PdfMetaCreator);
-              pdfDoc.AddTitle(this.Name);
-              
-              // Output PDF document.
-              pdfDoc.Open();
-              pdfDoc.NewPage();
-
-              // Create image element from SVG image.
-              Image image = Image.GetInstance(svgDoc.Draw(), ImageFormat.Bmp);
-              image.CompressionLevel = PdfStream.DEFAULT_COMPRESSION;
-
-              // Must match scaling performed when setting page size.
-              image.ScalePercent(100f / dpiScalar);
-
-              // Add image element to PDF document.
-              pdfDoc.Add(image);
-
-              pdfDoc.CloseDocument();
-            }
-          }
-
+          pdfDocument doc = new pdfDocument(this.Name, null);
+          pdfPage page = doc.addPage(bmp.Height, bmp.Width);
+          page.addImage(bmp, 0, 0);
+          doc.createPDF(outputStream);
           break;
 
         case "image/svg+xml":

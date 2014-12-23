@@ -1,0 +1,7 @@
+D:\Clem\Documents\Projets\Highcharts-export-module-asp.net\Tek4.Highcharts.Exporting\obj\Debug\Tek4.Highcharts.Exporting.csprojResolveAssemblyReference.cache
+D:\Clem\Documents\Projets\Highcharts-export-module-asp.net\Tek4.Highcharts.Exporting\bin\Debug\Tek4.Highcharts.Exporting.dll
+D:\Clem\Documents\Projets\Highcharts-export-module-asp.net\Tek4.Highcharts.Exporting\bin\Debug\Tek4.Highcharts.Exporting.pdb
+D:\Clem\Documents\Projets\Highcharts-export-module-asp.net\Tek4.Highcharts.Exporting\bin\Debug\sharpPDF.dll
+D:\Clem\Documents\Projets\Highcharts-export-module-asp.net\Tek4.Highcharts.Exporting\bin\Debug\Svg.dll
+D:\Clem\Documents\Projets\Highcharts-export-module-asp.net\Tek4.Highcharts.Exporting\obj\Debug\Tek4.Highcharts.Exporting.dll
+D:\Clem\Documents\Projets\Highcharts-export-module-asp.net\Tek4.Highcharts.Exporting\obj\Debug\Tek4.Highcharts.Exporting.pdb
